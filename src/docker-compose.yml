@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  Bookstore.Database:
+    image: postgres
+
+  Seq:
+    image: datalust/seq:latest
+
+  Redis:
+    image: redis
+
+  MessageBus:
+    image: rabbitmq:management
+
+volumes:
+  postgres_bookstoredb:

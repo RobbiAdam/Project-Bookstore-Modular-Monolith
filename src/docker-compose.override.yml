@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  Bookstore.Database:
+    container_name: bookstore_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=BookstoreDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_bookstoredb:/var/lib/postgresql/data/    
+   
+  Seq:
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+    restart: always
+    ports:
+      - "5341:5341"
+      - "9091:80"
+
+  Redis:
+    container_name: bookstore_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  MessageBus:
+    container_name: bookstore_messagebus
+    hostname: projectBookstore-mq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
