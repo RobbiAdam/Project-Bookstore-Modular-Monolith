@@ -38,3 +38,20 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+
+  keycloak:
+    container_name: bookstore_keycloak
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://Bookstore.Database/BookstoreDb?currentSchema=identity
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=postgres
+    restart: always
+    ports:
+      - "9090:8080"
+    depends_on:
+      - Bookstore.Database
+    command:
+      - start-dev  
