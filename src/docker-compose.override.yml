@@ -39,7 +39,7 @@ services:
       - "5672:5672"
       - "15672:15672"
 
-  keycloak:
+  Keycloak:
     container_name: bookstore_keycloak
     environment:
       - KEYCLOAK_ADMIN=admin
@@ -48,10 +48,51 @@ services:
       - KC_DB_URL=jdbc:postgresql://Bookstore.Database/BookstoreDb?currentSchema=identity
       - KC_DB_USERNAME=postgres
       - KC_DB_PASSWORD=postgres
+      - KC_HOSTNAME=http://identity:9090/
+      - HC_HTTP_PORT=9090
     restart: always
     ports:
-      - "9090:8080"
+      - "9090:9090"
     depends_on:
       - Bookstore.Database
     command:
       - start-dev  
+
+  bookstore.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=Bookstore.Database;Port=5432;Database=BookstoreDb;User Id=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__Redis=bookstore_redis:6379
+      - MessageBroker__Host=amqp://bookstore_messagebus:5672
+      - MessageBroker__Username=guest
+      - MessageBroker__Password=guest
+      - Keycloak__realm=bookstore_realm
+      - Keycloak__auth-server-url=http://keycloak:9090/
+      - Keycloak__ssl-required=none
+      - Keycloak__resource=bookstore_client
+      - Keycloak__verify-token-audience=false
+      - Keycloak__confidential-port=0
+      - Serilog__MinimumLevel__Default=Information
+      - Serilog__WriteTo__0__Name=Console
+      - Serilog__WriteTo__1__Name=Seq
+      - Serilog__WriteTo__1__Args__serverUrl=http://seq:5431
+      - Serilog__Enrich__0=FromLogContext
+      - Serilog__Enrich__1=WithMachineName
+      - Serilog__Enrich__2=WithProcessId
+      - Serilog__Enrich__3=WithThreadId
+      - Serilog__Properties__Application=Bookstore
+      - Serilog__Properties__Environment=Development
+    depends_on:
+      - Bookstore.Database
+      - Redis
+      - Seq
+      - MessageBus
+      - Keycloak
+    ports:
+      - "6000:8080"
+      - "6060:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

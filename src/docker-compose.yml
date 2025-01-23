@@ -13,8 +13,14 @@ services:
   MessageBus:
     image: rabbitmq:management
 
-  keycloak:
+  Keycloak:
     image: quay.io/keycloak/keycloak:24.0.3
+
+  bookstore.api:
+    image: ${DOCKER_REGISTRY-}bookstoreapi
+    build:
+      context: .
+      dockerfile: Api/Api/Dockerfile
 
 volumes:
   postgres_bookstoredb:

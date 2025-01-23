@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{DA8301C4-C29C-4A40-98A3-15A6CC524CB1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DA8301C4-C29C-4A40-98A3-15A6CC524CB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{A689E6C6-CAFA-4B0F-A5B2-9AA4CDA9AE59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0F1023A8-2DF1-4FF6-AFF3-F90B81DD16EB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Bootstrapper\Api\Api.csproj", "{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{2C545060-1145-49E4-ABB9-61975E69C9E2}"
 EndProject
@@ -31,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Contract", "Modules
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Contract", "Shared\Shared.Contract\Shared.Contract.csproj", "{B8E87D1F-BCC7-42CC-8056-35F957CC10B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Messaging", "Shared\Shared.Messaging\Shared.Messaging.csproj", "{23D4239D-2829-4EDF-B5EF-BAE539FAC029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Messaging", "Shared\Shared.Messaging\Shared.Messaging.csproj", "{23D4239D-2829-4EDF-B5EF-BAE539FAC029}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Api", "Api\Api\Bookstore.Api.csproj", "{CD87752F-D64D-48BF-8847-409C9E4AE2C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A51CB82A-63EB-4EBE-B9B4-942A4D1B4B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A51CB82A-63EB-4EBE-B9B4-942A4D1B4B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51CB82A-63EB-4EBE-B9B4-942A4D1B4B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,12 +71,15 @@ Global
 		{23D4239D-2829-4EDF-B5EF-BAE539FAC029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D4239D-2829-4EDF-B5EF-BAE539FAC029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D4239D-2829-4EDF-B5EF-BAE539FAC029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD87752F-D64D-48BF-8847-409C9E4AE2C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD87752F-D64D-48BF-8847-409C9E4AE2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD87752F-D64D-48BF-8847-409C9E4AE2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD87752F-D64D-48BF-8847-409C9E4AE2C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C20BBA96-7CA0-49A9-BC94-2C37C95BACCD} = {DA8301C4-C29C-4A40-98A3-15A6CC524CB1}
 		{2C545060-1145-49E4-ABB9-61975E69C9E2} = {A689E6C6-CAFA-4B0F-A5B2-9AA4CDA9AE59}
 		{2C043CE4-E0C6-4FAD-84D6-8DDC40A1621C} = {A689E6C6-CAFA-4B0F-A5B2-9AA4CDA9AE59}
 		{ACA6BBAD-BD6B-4E60-9F70-A51444A991C3} = {A689E6C6-CAFA-4B0F-A5B2-9AA4CDA9AE59}
@@ -91,6 +90,7 @@ Global
 		{1E5CE3E2-43D6-4629-AC2C-312D7A3A9339} = {2C043CE4-E0C6-4FAD-84D6-8DDC40A1621C}
 		{B8E87D1F-BCC7-42CC-8056-35F957CC10B6} = {0F1023A8-2DF1-4FF6-AFF3-F90B81DD16EB}
 		{23D4239D-2829-4EDF-B5EF-BAE539FAC029} = {0F1023A8-2DF1-4FF6-AFF3-F90B81DD16EB}
+		{CD87752F-D64D-48BF-8847-409C9E4AE2C2} = {DA8301C4-C29C-4A40-98A3-15A6CC524CB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A383FDC0-B530-4BA8-993E-85D596A6628B}
