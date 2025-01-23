@@ -13,7 +13,7 @@ public class GetOrdersQueryHandler(
     {
         var pageIndex = query.PaginationRequest.PageIndex;
         var pageSize = query.PaginationRequest.PageSize;
-        
+
         var totalCount = await context.Orders.LongCountAsync(cancellationToken);
 
         var orders = await context.Orders

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ordering.Data;
+using Ordering.Configurations;
 using Shared.Data;
 using Shared.Data.Interceptors;
 
@@ -12,8 +11,9 @@ public static class OrderingModule
     public static IServiceCollection AddOrderingModule(
         this IServiceCollection services, IConfiguration config)
     {
-        return services
-            .AddDatabase(config);
+        services.AddDatabase(config);
+        services.RegisterMapsterConfiguration();
+        return services;
     }
 
     private static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration config)
