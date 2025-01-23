@@ -1,9 +1,10 @@
 ﻿using System.Security.Claims;
+using Basket.Basket.Features.GetBasketByUsername;
 
-namespace Basket.Basket.Features.GetBasketByUsername;
+namespace Basket.Basket.Features.GetCurrentUserBasket;
 
-public record GetBasketByUsernameResponse(ShoppingCartDto Cart);
-public class GetBasketByUsernameEndpoint : ICarterModule
+public record GetCurrentUserBasketResponse(ShoppingCartDto Cart);
+public class GetCurrentUserBasketEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
@@ -15,7 +16,7 @@ public class GetBasketByUsernameEndpoint : ICarterModule
             var result = response.Adapt<GetBasketByUsernameResponse>();
             return Results.Ok(result);
         })
-        .Produces<GetBasketByUsernameResponse>(StatusCodes.Status200OK)
+        .Produces<GetCurrentUserBasketResponse>(StatusCodes.Status200OK)
         .ProducesProblem(StatusCodes.Status400BadRequest)
         .WithSummary("Get Basket")
         .WithDescription("Get Basket")
