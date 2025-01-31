@@ -4,7 +4,7 @@ namespace Ordering.Orders.Features.GetOrders;
 
 public record GetOrdersQuery(PaginationRequest PaginationRequest) : IQuery<GetOrdersResult>;
 
-public record GetOrdersResult(PaginatedResult<OrderDto> Orders);
+public record GetOrdersResult(PaginatedResult<QueryOrderDto> Orders);
 
 public class GetOrdersQueryHandler(
     OrderDbContext context) : IQueryHandler<GetOrdersQuery, GetOrdersResult>
@@ -24,10 +24,10 @@ public class GetOrdersQueryHandler(
             .Take(pageSize)
             .ToListAsync(cancellationToken);
 
-        var orderDtos = orders.Adapt<List<OrderDto>>();
+        var orderDtos = orders.Adapt<List<QueryOrderDto>>();
 
         return new GetOrdersResult(
-            new PaginatedResult<OrderDto>(
+            new PaginatedResult<QueryOrderDto>(
                 pageIndex,
                 pageSize,
                 totalCount,

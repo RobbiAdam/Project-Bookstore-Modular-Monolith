@@ -1,6 +1,6 @@
 ﻿namespace Ordering.Orders.Features.GetOrderById;
 
-public record GetOrderByIdResponse(OrderDto Order);
+public record GetOrderByIdResponse(QueryOrderDto Order);
 
 public class GetOrderByIdEndpoint : ICarterModule
 {
