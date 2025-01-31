@@ -55,6 +55,7 @@ public class CreateOrderCommandHandler(
         {
             newOrder.AddOrderItem(
                 item.ProductId,
+                item.ProductName,
                 item.Quantity,
                 item.Price);
         });
