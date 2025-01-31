@@ -31,7 +31,6 @@ public static class OrderingModule
 
     public static IApplicationBuilder UseOrderingModule(this IApplicationBuilder app)
     {
-
         app.UseMigration<OrderDbContext>();
         return app;
     }
