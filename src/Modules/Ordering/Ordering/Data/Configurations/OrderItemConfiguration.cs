@@ -9,6 +9,8 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
 
         builder.Property(oi => oi.ProductId).IsRequired();
 
+        builder.Property(oi => oi.ProductName).IsRequired();
+
         builder.Property(oi => oi.Quantity).IsRequired();
 
         builder.Property(oi => oi.Price).IsRequired();

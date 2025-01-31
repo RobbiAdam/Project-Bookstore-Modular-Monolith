@@ -20,7 +20,7 @@ services:
     image: ${DOCKER_REGISTRY-}bookstoreapi
     build:
       context: .
-      dockerfile: Api/Api/Dockerfile
+      dockerfile: Api/Bookstore.Api/Dockerfile
 
 volumes:
   postgres_bookstoredb:
