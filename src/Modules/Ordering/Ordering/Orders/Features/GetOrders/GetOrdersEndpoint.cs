@@ -2,7 +2,7 @@
 
 namespace Ordering.Orders.Features.GetOrders;
 
-public record GetOrdersResponse(PaginatedResult<OrderDto> Orders);
+public record GetOrdersResponse(PaginatedResult<QueryOrderDto> Orders);
 public class GetOrdersEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)

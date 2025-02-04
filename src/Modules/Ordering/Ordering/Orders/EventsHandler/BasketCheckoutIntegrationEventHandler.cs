@@ -27,7 +27,12 @@ public class BasketCheckoutIntegrationEventHandler(
             ShippingAddress: addressDto,
             BillingAddress: addressDto,
             Payment: paymentDto,
-            OrderItems: new List<OrderItemDto>()
+            OrderItems: message.Items.Select(x => new OrderItemDto(
+                orderId,
+                ProductId: x.ProductId,
+                ProductName: x.ProductName,
+                Quantity: x.Quantity,
+                Price: x.Price)).ToList()
         );
         return new CreateOrderCommand(orderDto);
     }

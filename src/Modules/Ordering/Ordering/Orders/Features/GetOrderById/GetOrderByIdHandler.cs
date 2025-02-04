@@ -2,7 +2,7 @@
 
 public record GetOrderByIdQuery(Guid OrderId) : IQuery<GetOrderByIdResult>;
 
-public record GetOrderByIdResult(OrderDto Order);
+public record GetOrderByIdResult(QueryOrderDto Order);
 
 public class GetOrderByIdHandler(
     OrderDbContext context) : IQueryHandler<GetOrderByIdQuery, GetOrderByIdResult>
@@ -18,7 +18,7 @@ public class GetOrderByIdHandler(
         if(order == null ) 
             throw new OrderNotFoundException(query.OrderId);
 
-        var orderDto = order.Adapt<OrderDto>();
+        var orderDto = order.Adapt<QueryOrderDto>();
 
         return new GetOrderByIdResult(orderDto);
     }
