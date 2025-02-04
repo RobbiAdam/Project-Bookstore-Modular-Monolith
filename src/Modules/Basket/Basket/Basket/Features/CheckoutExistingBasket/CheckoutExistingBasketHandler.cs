@@ -1,4 +1,5 @@
-﻿using Shared.Messaging.Events;
+﻿using Shared.Messaging.Dtos;
+using Shared.Messaging.Events;
 using System.Text.Json;
 
 namespace Basket.Basket.Features.CheckoutExistingBasket;
@@ -76,6 +77,14 @@ public class CheckoutExistingBasketCommandHandler(
             Username = cart.Username,
             TotalPrice = cart.TotalPrice,
             CustomerId = cart.Id,
+
+            Items = cart.Items.Select(item => new BasketCheckoutItemDto
+            {
+                ProductId = item.ProductId,
+                ProductName = item.ProductName,
+                Quantity = item.Quantity,
+                Price = item.Price
+            }).ToList(),
 
             //Shipping address
             FirstName = basketCheckout.FirstName,

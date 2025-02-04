@@ -1,9 +1,12 @@
-﻿namespace Shared.Messaging.Events;
+﻿using Shared.Messaging.Dtos;
+
+namespace Shared.Messaging.Events;
 public record BasketCheckoutIntegrationEvent : IntegrationEvent
 {
     public string Username { get; set; } = default!;
     public Guid CustomerId { get; set; } = default!;
     public decimal TotalPrice { get; set; } = default!;
+    public List<BasketCheckoutItemDto> Items { get; set; } = new();
 
     // Shipping and BillingAddress
     public string FirstName { get; set; } = default!;
