@@ -17,6 +17,5 @@ public class GetProductByCategoryHandler(CatalogDbContext context) : IQueryHandl
         var productDtos = products.Adapt<List<ProductDto>>();
 
         return new GetProductByCategoryResult(productDtos);
-
     }
 }

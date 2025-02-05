@@ -35,18 +35,31 @@ builder.Services
     .AddBasketModule(builder.Configuration)
     .AddOrderingModule(builder.Configuration);
 
-
 builder.Services
     .AddExceptionHandler<CustomExceptionHandler>();
 
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseSerilogRequestLogging();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+
+    app.UseSwaggerUI(opt =>
+    {
+        opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Bookstore API v1");
+    });
+
+};
+
+
 app.MapCarter();
+
+app.UseSerilogRequestLogging();
 
 app.UseAuthentication();
 app.UseAuthorization();
