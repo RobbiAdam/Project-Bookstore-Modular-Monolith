@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/5a27604b-bc8c-411e-8a99-2748dc5b9684)# Project Bookstore Modular Monolith
+# Project Bookstore Modular Monolith
 
 A fictional online bookstore application built with ASP.NET Core using a Modular-Monolith Architecture.
 
@@ -121,7 +121,7 @@ The application employs vertical slice architecture,to organize code that priori
 * Simplified Modification: Developers can modify individual features with minimal system-wide impact
 * Improved Code Maintainability: Clear, isolated feature implementations
   
-![vsa drawio](https://github.com/user-attachments/assets/75494c62-b7b9-4f25-a39b-c5e24c711fd3)
+![vsa drawio](https://github.com/user-attachments/assets/57d14fd7-5d8d-4753-aa15-982fbc528f1a)
 
 ![Screenshot_98](https://github.com/user-attachments/assets/6cd7611f-30f3-4584-83ce-349bbd69b1e1)
 
