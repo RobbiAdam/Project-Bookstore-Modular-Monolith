@@ -1,4 +1,4 @@
-# Project Bookstore Modular Monolith
+![image](https://github.com/user-attachments/assets/5a27604b-bc8c-411e-8a99-2748dc5b9684)# Project Bookstore Modular Monolith
 
 A fictional online bookstore application built with ASP.NET Core using a Modular-Monolith Architecture.
 
@@ -120,6 +120,8 @@ The application employs vertical slice architecture,to organize code that priori
 * Minimal Cross-Dependency: Reduces the risk of unintended feature interactions
 * Simplified Modification: Developers can modify individual features with minimal system-wide impact
 * Improved Code Maintainability: Clear, isolated feature implementations
+  
+![vsa drawio](https://github.com/user-attachments/assets/75494c62-b7b9-4f25-a39b-c5e24c711fd3)
 
 ![Screenshot_98](https://github.com/user-attachments/assets/6cd7611f-30f3-4584-83ce-349bbd69b1e1)
 
@@ -143,5 +145,17 @@ you need these tools to able to run this project
 * Visual Studio 2022
 * .Net 8 (minimum)
 * docker desktop
+
+1. Clone the repository
+2. Open it on Visual Studio
+3. Set docker-compose as startup project, then run it without debugging on visual studio.
+4. Wait for docker compose all services. (wait for a few minutes to make sure all the services are ready or may take longer because it's downloading the required image first)
+5. Now you can check the API documentation on your browser by going to https://localhost:6060/swagger 
+
+### Note
+
+if you encounter error for database still starting up in console. just wait for a 2-3 minutes then run the docker-compose without debugging again.
+
+
 
 
