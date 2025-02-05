@@ -93,3 +93,8 @@ A fictional online bookstore application built with ASP.NET Core using a Modular
  **Keycloak**: Open-source Identity and Access Management solution
 
 
+ #### Application Structure
+ ![Untitled Diagram drawio(1)](https://github.com/user-attachments/assets/3b9b7371-243f-4cec-b8a9-207a288bad83)
+
+
+
